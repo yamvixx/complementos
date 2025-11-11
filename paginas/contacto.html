@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contacto — Complementos, Accesorios y Bisutería</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Íconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header class="site-header">
+<div class="container">
+<a href="../index.html" class="logo">Complementos<span> · Bisutería</span></a>
+<nav class="nav" id="nav">
+<a href="../index.html">Inicio</a>
+<a href="../paginas/about.html">Nosotras</a>
+<a href="../paginas/contacto.html" class="active">Contacto</a>
+        <a href="hombre.html">Hombres</a>
+</nav>
+            <button id="btn-menu" class="btn-menu" aria-label="Abrir menú">☰</button>
+</div>
+</header>
+
+<main class="container contacto">
+
+<h1>Contáctanos ✨</h1>
+<p>Completa el formulario y te responderemos por WhatsApp 💗</p>
+
+<form id="contactForm">
+<div class="form-row">
+<input type="text" id="name" placeholder="Tu nombre" required>
+<input type="text" id="city" placeholder="Tu ciudad (opcional)">
+</div>
+
+<input type="text" id="product" placeholder="Producto de interés (opcional)">
+<textarea id="message" rows="4" placeholder="Tu mensaje" required></textarea>
+
+<button class="btn" type="submit">Enviar a WhatsApp</button>
+</form>
+
+
+<!-- ===================== FAQ ===================== -->
+<hr style="margin:40px 0;">
+
+<section class="faq">
+  <h2>Preguntas Frecuentes 🤍</h2>
+
+  <div class="faq-box">
+    <details>
+      <summary><i class="fa-regular fa-circle-question"></i> ¿Cómo realizo un pedido?</summary>
+      <p>Solo debes enviarnos un mensaje por WhatsApp indicando el producto que deseas. Te confirmaremos disponibilidad y método de envío 💗</p>
+    </details>
+
+    <details>
+      <summary><i class="fa-regular fa-paper-plane"></i> ¿Hacen envíos a provincia?</summary>
+      <p>Sí, realizamos envíos a todo el Perú mediante Olva Courier o empresa coordinada 📦✨</p>
+    </details>
+
+    <details>
+      <summary><i class="fa-solid fa-wallet"></i> ¿Cuáles son los medios de pago?</summary>
+      <p>Aceptamos Yape, Plin y transferencias bancarias 📲</p>
+    </details>
+
+    <details>
+      <summary><i class="fa-regular fa-clock"></i> ¿Cuánto demora la entrega?</summary>
+      <p>Lima y Cañete: 1 a 2 días hábiles. Provincias: 2 a 4 días hábiles. Siempre te mantenemos informada 💌</p>
+    </details>
+  </div>
+</section>
+
+
+</main>
+
+
+<footer class="site-footer">
+<div class="container">
+      <p>&copy; <span id="year"></span> Complementos, Accesorios y Bisutería — Hecho con ♥ para mujeres</p>
+</div>
+</footer>
+
+<script src="../js/main.js"></script>
+
+<script>
+document.getElementById('year-contact').textContent = new Date().getFullYear();
+
+// === CONFIGURAR TU NÚMERO AQUÍ ===
+const numeroWhatsApp = "51922203908"; // Cambiar si deseas otro
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    
+    let nombre = document.getElementById("name").value;
+    let ciudad = document.getElementById("city").value;
+    let producto = document.getElementById("product").value;
+    let mensaje = document.getElementById("message").value;
+
+    let texto = `Hola! Mi nombre es ${nombre}%0A` +
+                (ciudad ? `Soy de: ${ciudad}%0A` : ``) +
+                (producto ? `Estoy interesada en: ${producto}%0A` : ``) +
+                `Mensaje: ${mensaje}`;
+
+    window.open(`https://wa.me/${numeroWhatsApp}?text=${texto}`, "_blank");
+});
+</script>
+
+</body>
+</html>
